@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lenguajes Expertos e Inteligencia Artificial</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <section class="slide active" id="slide1">
+      <h1>Lenguajes Expertos e Inteligencia Artificial</h1>
+      <h2>Presentación de: Diego Peres</h2>
+      <h3>Docente: Jhonatan Rojas</h3>
+      <h4>Politécnico Santafé de Bogotá</h4>
+      <button class="btn" onclick="nextSlide()">Comenzar</button>
+    </section>
+
+    <section class="slide" id="slide2">
+      <h2>Introducción a la Búsqueda No Informada</h2>
+      <p>La búsqueda no informada es un conjunto de algoritmos que exploran un espacio de estados sin información adicional sobre la meta. Se utilizan ampliamente en Inteligencia Artificial y análisis de datos para encontrar soluciones cuando no se conoce una heurística clara.</p>
+      <p><strong>Importancia:</strong> Permiten explorar todas las posibles soluciones de forma sistemática.</p>
+      <p><strong>Limitaciones:</strong> Pueden ser lentos y consumir mucha memoria, especialmente en espacios grandes.</p>
+      <div class="nav-buttons">
+        <button class="btn" onclick="prevSlide()">Anterior</button>
+        <button class="btn" onclick="nextSlide()">Siguiente</button>
+      </div>
+    </section>
+
+    <section class="slide" id="slide3">
+      <h2>Búsqueda en Anchura (BFS)</h2>
+      <p><strong>Definición:</strong> Explora el espacio de estados nivel por nivel, usando una cola FIFO para mantener el orden de exploración.</p>
+      <p><strong>Ventajas:</strong></p>
+      <ul>
+        <li>Encuentra la solución más corta si el costo es uniforme.</li>
+        <li>Completo y óptimo bajo ciertas condiciones.</li>
+      </ul>
+      <p><strong>Desventajas:</strong></p>
+      <ul>
+        <li>Consumo de memoria alto al almacenar todos los nodos en el nivel.</li>
+        <li>Puede ser lento en espacios grandes.</li>
+      </ul>
+      <div id="bfsGraph" class="graph-container">
+        <svg width="300" height="200" viewBox="0 0 300 200">
+          <circle cx="50" cy="100" r="20" class="node" id="bfsNode1"/>
+          <circle cx="150" cy="50" r="20" class="node" id="bfsNode2"/>
+          <circle cx="150" cy="150" r="20" class="node" id="bfsNode3"/>
+          <circle cx="250" cy="100" r="20" class="node" id="bfsNode4"/>
+          <line x1="70" y1="100" x2="130" y2="60" class="edge"/>
+          <line x1="70" y1="100" x2="130" y2="140" class="edge"/>
+          <line x1="170" y1="50" x2="230" y2="100" class="edge"/>
+          <line x1="170" y1="150" x2="230" y2="100" class="edge"/>
+        </svg>
+      </div>
+      <div class="nav-buttons">
+        <button class="btn" onclick="prevSlide()">Anterior</button>
+        <button class="btn" onclick="nextSlide()">Siguiente</button>
+      </div>
+    </section>
+
+    <section class="slide" id="slide4">
+      <h2>Búsqueda en Profundidad (DFS) y Variantes</h2>
+      <p><strong>DFS:</strong> Explora lo más profundo posible antes de retroceder. Utiliza una pila (stack) para gestionar los nodos.</p>
+      <p><strong>DSL (Depth-limited Search):</strong> DFS con límite de profundidad para evitar ciclos o exploraciones infinitas.</p>
+      <p><strong>ID-DSL (Iterative Deepening DFS):</strong> Ejecuta DFS con límite creciente de profundidad, combinando lo mejor de BFS y DFS.</p>
+      <p><strong>Ventajas:</strong></p>
+      <ul>
+        <li>Bajo consumo de memoria.</li>
+        <li>Puede encontrar soluciones sin explorar todo el espacio.</li>
+      </ul>
+      <p><strong>Desventajas:</strong></p>
+      <ul>
+        <li>No garantiza solución óptima.</li>
+        <li>Puede quedarse atrapado en ramas profundas sin solución.</li>
+      </ul>
+      <div class="nav-buttons">
+        <button class="btn" onclick="prevSlide()">Anterior</button>
+        <button class="btn" onclick="nextSlide()">Siguiente</button>
+      </div>
+    </section>
+
+    <section class="slide" id="slide5">
+      <h2>Búsqueda Bidireccional</h2>
+      <p>Explora simultáneamente desde el estado inicial y el estado meta, intentando encontrar un punto de encuentro.</p>
+      <p><strong>Ventajas:</strong></p>
+      <ul>
+        <li>Reduce exponencialmente el espacio de búsqueda.</li>
+        <li>Más eficiente para problemas con estados grandes.</li>
+      </ul>
+      <p><strong>Desventajas:</strong></p>
+      <ul>
+        <li>Requiere conocer el estado meta de forma explícita.</li>
+        <li>La implementación puede ser compleja.</li>
+      </ul>
+      <div class="nav-buttons">
+        <button class="btn" onclick="prevSlide()">Anterior</button>
+        <button class="btn" onclick="nextSlide()">Siguiente</button>
+      </div>
+    </section>
+
+    <section class="slide" id="slide6">
+      <h2>Búsqueda de Costo Uniforme (Uniform Cost Search)</h2>
+      <p>Explora el espacio de estados expandiendo siempre el nodo con menor costo acumulado desde el inicio.</p>
+      <p><strong>Diferencias con BFS y DFS:</strong></p>
+      <ul>
+        <li>BFS asume costo uniforme en cada paso.</li>
+        <li>Uniform Cost Search considera costos variables y encuentra caminos óptimos.</li>
+      </ul>
+      <p><strong>Aplicaciones:</strong> Rutas con diferentes costos, planificación, juegos.</p>
+      <div class="nav-buttons">
+        <button class="btn" onclick="prevSlide()">Anterior</button>
+        <button class="btn" onclick="nextSlide()">Siguiente</button>
+      </div>
+    </section>
+
+    <section class="slide" id="slide7">
+      <h2>FIFO (First-In, First-Out) y Conclusión</h2>
+      <p>FIFO es una estructura de datos donde el primer elemento en entrar es el primero en salir. Es clave en la implementación de BFS para gestionar el orden de exploración.</p>
+      <p><strong>Resumen comparativo:</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>Método</th>
+            <th>Memoria</th>
+            <th>Óptimo</th>
+            <th>Completo</th>
+            <th>Uso típico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BFS</td>
+            <td>Alta</td>
+            <td>Sí (costo uniforme)</td>
+            <td>Sí</td>
+            <td>Encontrar ruta más corta</td>
+          </tr>
+          <tr>
+            <td>DFS</td>
+            <td>Baja</td>
+            <td>No</td>
+            <td>No siempre</td>
+            <td>Exploración profunda, menos memoria</td>
+          </tr>
+          <tr>
+            <td>DSL / ID-DSL</td>
+            <td>Baja</td>
+            <td>Depende del límite</td>
+            <td>Mejor que DFS</td>
+            <td>Evitar ciclos, búsqueda iterativa</td>
+          </tr>
+          <tr>
+            <td>Bidireccional</td>
+            <td>Moderada</td>
+            <td>Sí</td>
+            <td>Sí</td>
+            <td>Problemas con meta explícita</td>
+          </tr>
+          <tr>
+            <td>Costo Uniforme</td>
+            <td>Alta</td>
+            <td>Sí</td>
+            <td>Sí</td>
+            <td>Rutas con costos variables</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>¡Gracias por su atención!</h3>
+      <button class="btn" onclick="restart()">Reiniciar Presentación</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
